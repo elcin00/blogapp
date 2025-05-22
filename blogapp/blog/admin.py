@@ -9,7 +9,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_editable = ("is_active", "is_home",)
     search_fields = ("title", "description",)
     readonly_fields = ("slug",)
-    list_filter = ("is_active", "is_home")
+    list_filter = ("is_active", "is_home", "categories")
 
     def selected_categories(self, obj):
         html = "<ul>"
