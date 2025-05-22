@@ -6,13 +6,30 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link {% if url_name == 'home' or url_name == 'blogs_by_category' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {% if url_name == 'blogs' or url_name == 'blog_details' %}active{% endif %}" href="{% url 'blogs' %}">Blogs</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ms-auto me-5">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="" >Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" >Welcome</a>
+          </li>
+        {% else %}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="" >Signup</a>
+            </li>
+        {% endif %}
       </ul>
     </div>
   </div>
